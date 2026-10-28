@@ -20,7 +20,7 @@
 
 ## [v2.0.1] - 2024-03-04
 
-- Changed name of module to `github.com/unknwon/go-mockgen`.
+- Changed name of module to `github.com/derision-test/go-mockgen/v2`.
 - Updated module to Go 1.22. [#52](https://github.com/derision-test/go-mockgen/pull/52)
 
 ## v2.0.0 - 2024-03-04
@@ -136,4 +136,4 @@ No significant changes (only corrected version output).
 [v2.0.1]: https://github.com/derision-test/go-mockgen/compare/v1.3.7...v2.0.1
 [v2.0.2]: https://github.com/derision-test/go-mockgen/compare/v2.0.1...v2.0.2
 [v2.1.0]: https://github.com/derision-test/go-mockgen/compare/v2.0.2...v2.1.0
-[v2.1.0]: https://github.com/derision-test/go-mockgen/compare/v2.1.0...v2.1.1
+[v2.1.1]: https://github.com/derision-test/go-mockgen/compare/v2.1.0...v2.1.1
