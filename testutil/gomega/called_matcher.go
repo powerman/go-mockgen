@@ -5,7 +5,7 @@ import (
 
 	"github.com/onsi/gomega/format"
 	"github.com/onsi/gomega/types"
-	"github.com/unknwon/go-mockgen/internal/testutil"
+	"github.com/powerman/go-mockgen/v2/internal/testutil"
 )
 
 type calledMatcher struct {

@@ -9,9 +9,9 @@ import (
 	"strings"
 
 	"github.com/alecthomas/kingpin"
-	"github.com/unknwon/go-mockgen/internal/mockgen/consts"
-	"github.com/unknwon/go-mockgen/internal/mockgen/generation"
-	"github.com/unknwon/go-mockgen/internal/mockgen/paths"
+	"github.com/powerman/go-mockgen/v2/internal/mockgen/consts"
+	"github.com/powerman/go-mockgen/v2/internal/mockgen/generation"
+	"github.com/powerman/go-mockgen/v2/internal/mockgen/paths"
 	"gopkg.in/yaml.v3"
 )
 

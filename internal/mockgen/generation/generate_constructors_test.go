@@ -92,8 +92,8 @@ func TestGenerateMockStructFromConstructorUnexported(t *testing.T) {
 
 	expected := strip(`
 		// surrogateMockClient is a copy of the client interface (from the package
-		// github.com/unknwon/go-mockgen/test). It is redefined here as it
-		// is unexported in the source package.
+		// github.com/powerman/go-mockgen/v2/test). It is redefined here as it is
+		// unexported in the source package.
 		type surrogateMockClient interface {
 			Status() (string, bool)
 			Do(string) bool

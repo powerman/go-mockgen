@@ -1,6 +1,6 @@
 package mockrequire
 
-import mockassert "github.com/unknwon/go-mockgen/testutil/assert"
+import mockassert "github.com/powerman/go-mockgen/v2/testutil/assert"
 
 type CallInstanceAsserter = mockassert.CallInstanceAsserter
 type CallInstanceAsserterFunc = mockassert.CallInstanceAsserterFunc

@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 - Fixed panic on type aliases of interface types with Go 1.27 (which removed `gotypesalias=0`).
+- Changed name of module to `github.com/powerman/go-mockgen/v2`.
 
 ## [v2.1.1] - 2025-06-28
 

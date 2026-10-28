@@ -5,8 +5,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/unknwon/go-mockgen/internal/mockgen/generation"
-	"github.com/unknwon/go-mockgen/internal/mockgen/types"
+	"github.com/powerman/go-mockgen/v2/internal/mockgen/generation"
+	"github.com/powerman/go-mockgen/v2/internal/mockgen/types"
 	"golang.org/x/tools/go/packages"
 )
 

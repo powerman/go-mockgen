@@ -6,7 +6,7 @@ import (
 
 	"github.com/dave/jennifer/jen"
 	"github.com/dustin/go-humanize"
-	"github.com/unknwon/go-mockgen/internal/mockgen/types"
+	"github.com/powerman/go-mockgen/v2/internal/mockgen/types"
 )
 
 func generateMockStruct(iface *wrappedInterface, outputImportPath string) jen.Code {

@@ -5,9 +5,9 @@ import (
 	"testing"
 
 	. "github.com/onsi/gomega"
-	"github.com/unknwon/go-mockgen/internal/integration/testdata"
-	"github.com/unknwon/go-mockgen/internal/integration/testdata/mocks"
-	. "github.com/unknwon/go-mockgen/testutil/gomega"
+	"github.com/powerman/go-mockgen/v2/internal/integration/testdata"
+	"github.com/powerman/go-mockgen/v2/internal/integration/testdata/mocks"
+	. "github.com/powerman/go-mockgen/v2/testutil/gomega"
 )
 
 func TestGomegaCalls(t *testing.T) {
