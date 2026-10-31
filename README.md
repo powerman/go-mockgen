@@ -5,6 +5,55 @@
 
 A mock interface code generator (supports generics as of [v1.2.0](https://github.com/derision-test/go-mockgen/releases/tag/v1.2.0) 🎉).
 
+## Alternative: mockery template
+
+This fork is a stop-gap which keeps go-mockgen working on recent Go versions.
+For long-term use consider the
+[go-mockgen template](https://pkg.go.dev/github.com/powerman/mockery-templates/go-mockgen)
+for [mockery](https://github.com/vektra/mockery) v3 instead:
+mockery loads packages, types and imports, and the template defines only the generated code.
+The reasons are explained in its
+[RATIONALE.md](https://github.com/powerman/mockery-templates/blob/main/RATIONALE.md).
+
+The template generates fakes with the same public API as go-mockgen v2.1.1,
+so existing tests work unchanged and [Testing with Mocks](#testing-with-mocks) stays valid.
+This includes the Testify and Gomega integrations,
+which are still imported from this module.
+
+To migrate, [copy the template](https://github.com/powerman/mockery-templates#installation)
+into your project and list interfaces in `.mockery.yml`.
+This example generates the same API as
+`go-mockgen -f github.com/cache/user/pkg -i Cache -o pkg/mocks/mock.cache.go`:
+
+```yaml
+formatter: goimports
+_anchors:
+  go-mockgen: &go-mockgen
+    template: file://.mockery/go-mockgen.templ
+    dir: '{{.InterfaceDirRelative}}/mocks'
+    pkgname: mocks
+    filename: 'mock.{{.InterfaceFile | base}}'
+    structname: 'Mock{{.InterfaceName | firstUpper}}'
+packages:
+  github.com/cache/user/pkg:
+    interfaces:
+      Cache:
+        config: *go-mockgen
+```
+
+mockery aborts when any loaded package fails to type-check, so
+[delete its outputs before running it](https://github.com/powerman/mockery-templates#delete-outputs-before-running-mockery).
+
+Differences from go-mockgen:
+
+- All names are derived from `structname`, e.g. `--prefix Stub` corresponds to
+  `'MockStub{{.InterfaceName | firstUpper}}'`.
+  `--constructor-prefix`, `--file-prefix` and `--build-constraints` have no equivalent.
+- Generated code is the same except for the header, import aliases and comment wrapping,
+  and type aliases are kept as written (e.g. `port.Ctx` instead of `context.Context`).
+- An unexported interface can't be generated into another package,
+  and an alias declaration (`type A = I`) can't be listed: list the aliased `I` instead.
+
 ## Generating Mocks
 
 Install with `go install github.com/powerman/go-mockgen/v2/cmd/go-mockgen@latest`.
@@ -81,7 +130,7 @@ mocks:
       - Cache
 ```
 
-This file results in the mocks defined in the `mockgen.yaml` file, concatenated with the mocks defined in `{foo,bar,baz}.mockgen.yaml`. The included config paths do not have global-level configuration and should encode a top-level mocks array, e.g., 
+This file results in the mocks defined in the `mockgen.yaml` file, concatenated with the mocks defined in `{foo,bar,baz}.mockgen.yaml`. The included config paths do not have global-level configuration and should encode a top-level mocks array, e.g.,
 
 ```yaml
 - filename: mock_cache_test.go
